@@ -27,5 +27,5 @@ jobs:
     - stage: analysis
       name: "Analysis Code"
       script:
-        - sonar-scanner
-        # - sonar-scanner -X
+        # - sonar-scanner
+        - sonar-scanner -X
