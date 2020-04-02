@@ -6,14 +6,17 @@
 #   - docker
 # install:
 #   - dotnet restore API/Solution1.sln
+
+dist: trusty
 branches:
   except:
     - master
 
-# addons:
-#   sonarcloud:
-#     organization: "lazyopsdev"
-#     token:
+addons:
+  sonarcloud:
+    organization: "lazyopsdev"
+    token:
+      secure: "8K5nEOG+9yMC/YhtjD18q0WJdyY7rWvbBvy6+ZHkc7JlKY04bGQ62YBDBroGUiOTgMkhPbvIN+qh7l5ImFDsZBXjYn3ImfMol4muyZl14bLPElDOj/2TU2uZluWlJ8Yyv60V9ZPikt63gL6FD8peJur/pB4ylNJHhuaTEVV+Hp+BZzZ7mItPIFpyskiPXb3i9g5z1WoIdHnC7odKgOIqfJjhVRglIjVoWdVNSxTX7Ikt3PmlosDskCQsGV34rrUpTgE+VDYzLFjgpSKFaXPxsatCHb+RM7fYYZDsgEnJOlOfK/Q9FcUXFDjUGKjTvPXJRLV8SeVvMq1WX3JFqN2SAwtXvmtlieLivnWVQwNC3FoA9jNYRqmm1NaA8BnjmaA5Oxz1a+KbWdvw2473WNO1st/Rlqr8aSNTF/gsE30jtsawC8cT56XBdyt+RQOJSEDK+vy4zEVK+SaV4i9dL2TxaY7xYxi9nE1SvnucuqMP3EYo0dMweCyHDaGwC8G/o+kpnOn9U1b/zwAydwcs8Gl3hfv/pAHXvTf2vrNJkhhMKqv0ChqcoJvlId6rVowpbZHMybm+kcUsu8T0L3h0jIHCJCb9N792QygcuqPWQs39Z7bRiFrXIHw1SPcWzfwgkL2fyqoBEycNDN2VhJKNVjGJ15Pf/knzbSs7El9llS0ac78="
 #       secure: "pMUyXC4EPjSBxSVtphWeIJFvc3rH7A6n5JWcYN2gdGtz27M3tC+Dkv2/c/8D+4qadYMAjkP0VVM0seslkOYe7zerdfUrT8UxWGNjPZzjdZQEz+rccbJwxJeGvXm42+AUt3eopkQOcO4ZwbUZmkdTFQmM/4CXKdmBMgx+nxdbE59wIO/pxQoI9oRdnoGfNbJSVumvOBfph8QCAH0U+gXyogqMEFSKTCyfO+Q64xuGJYCZ+VVjWdQimo3e6RWzVw8tViSVMU/NMAlbXMrZeZdt4Ab+CzzFXpIsdxLMO6bhY9GUK9RmCvZhGSXzNgd5hRpu+CoQHL961zc9gPk7yEcuYRz8kUYuoNK/m5hN3xJx03k7wwEb+D8qMDke6kSXLJNJVk7o+Ej0pPmR74whXswqgZBrQeZThyt29VdytxEGLhAOCHaaq70T4bAq6XKl1qCDm7OZRfzIfL+tvHOpPQK1nsxKhPOpWcAc1ctxneV29iCtSxGQHv2WqnxSdZ0OfU8anvXXZR7UhkIGRt7LPUpunkXiLfHEnTnXCKdgwuwKRohqCyp+0efCYl7DHHxJv9GXS/h8AaBrraoVnX3+QHOxV7DMa0+sfEK1pvSuMuuQBaIHFla/8tYcTlX0j/brGE9//umbsQkdZOAekwXbvMIspkfM12NG+0nBI2h6TH0oHR4="
 jobs:
   include:
@@ -22,5 +25,5 @@ jobs:
     - stage: analysis
       name: "Analysis Code"
       script:
-        - echo "hello"
+        - sonar-scanner
         # - sonar-scanner -X
